@@ -1,6 +1,13 @@
-Engine
 Resources/bin
 Resources/obj
+Engine/bin
+Engine/obj
+Engine/Properties
+Engine/Enemies/Enemies.cs
+Engine/Player/Base.cs
+Engine/Player/Player.cs
+Engine/Engine.cs
+Engine/Mechanics.cs
 Game/GameFolder
 Game/bin
 Game/obj
