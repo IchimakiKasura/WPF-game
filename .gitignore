@@ -1,0 +1,8 @@
+Engine
+Resources/bin
+Resources/obj
+Game/GameFolder
+Game/bin
+Game/obj
+Game/Properties
+Game/.vs

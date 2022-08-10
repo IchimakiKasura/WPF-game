@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Damage="clr-namespace:Engine.Damage;assembly=Engine" x:Class="Game.MainWindow"
+        mc:Ignorable="d"
+		SizeToContent="WidthAndHeight"
+		ResizeMode="CanMinimize"
+        Title="Hi My Name is Kasura">
+	<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="720" Width="1280">
+		<Canvas x:Name="MainCanvas"
+				Background="Wheat"
+				MouseMove="MouseMoveHandler"
+				Height="720"
+				Width="1280"
+				RenderTransformOrigin="0.279,0.767">
+			<Rectangle x:Name="BaseTower" Height="70" Width="70" Canvas.Left="605" Canvas.Top="325">
+				<Rectangle.Fill>
+					<ImageBrush ImageSource="pack://application:,,,/Resources;component/Image/castle.png"/>
+				</Rectangle.Fill>
+			</Rectangle>
+			<Ellipse x:Name="ellipse" Fill="LightBlue" Width="100" Height="100" Panel.ZIndex="1"/>
+		</Canvas>
+		<Label x:Name="kills" Content="Killed: 0" FontSize="20" Margin="10,626,981,52" IsHitTestVisible="False"/>
+		<Label x:Name="Gotaway" Content="Got Away: 0" FontSize="20" Margin="10,668,981,10" IsHitTestVisible="False"/>
+		<Label Content="Spawn Rate/ms:" FontSize="20" Margin="894,10,234,668" IsHitTestVisible="False"/>
+		<Button x:Name="Start" Content="Start" Width="127" Margin="1143,10,10,668" />
+		<TextBox x:Name="TX" Margin="1046,10,141,668" TextChanged="TextChange" FontSize="28" IsEnabled="False"/>
+	</Grid>
+</Window>

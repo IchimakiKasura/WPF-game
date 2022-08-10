@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game.csproj", "{6E781216-F0CC-470A-B4C0-12312BD2928D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "..\Engine\Engine.csproj", "{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "..\Resources\Resources.csproj", "{7CE12887-C159-42C0-8763-C8839D20D2D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E781216-F0CC-470A-B4C0-12312BD2928D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E781216-F0CC-470A-B4C0-12312BD2928D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E781216-F0CC-470A-B4C0-12312BD2928D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E781216-F0CC-470A-B4C0-12312BD2928D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE12887-C159-42C0-8763-C8839D20D2D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE12887-C159-42C0-8763-C8839D20D2D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE12887-C159-42C0-8763-C8839D20D2D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE12887-C159-42C0-8763-C8839D20D2D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {382AD477-677E-4EA8-8FAC-066B8CC6AAED}
+	EndGlobalSection
+EndGlobal
