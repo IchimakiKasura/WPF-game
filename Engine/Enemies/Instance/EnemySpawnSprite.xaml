@@ -47,6 +47,6 @@
 			</Rectangle.Triggers>
 		</Rectangle>
 		<Rectangle x:Name="HitBox" Height="60" Width="50" Canvas.Left="14" Canvas.Top="40" StrokeDashArray="5"/>
-		<Rectangle x:Name="DamageInstance" Height="10" Width="10" Canvas.Left="34" Canvas.Top="15" />
+		<Rectangle x:Name="DamageInstance" Height="10" Width="10" Canvas.Left="34" Canvas.Top="40" HorizontalAlignment="Center" VerticalAlignment="Top" />
 	</Canvas>
 </UserControl>

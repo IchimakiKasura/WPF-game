@@ -57,6 +57,8 @@ namespace Engine.Enemies.Instance
 
 		public MediaPlayer mediaPlayer { get; set; }
 
+		public System.Windows.Media.Animation.Storyboard storyboard { get; set; }
+
 		public EnemySpawnSprite()
 		{
 			mediaPlayer = new();

@@ -10,11 +10,16 @@
         Title="Hi My Name is Kasura">
 	<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="720" Width="1280">
 		<Canvas x:Name="MainCanvas"
-				Background="Wheat"
 				MouseMove="MouseMoveHandler"
 				Height="720"
 				Width="1280"
 				RenderTransformOrigin="0.279,0.767">
+			<Canvas.Background>
+				<ImageBrush ImageSource="pack://application:,,,/Resources;component/Image/DebugTile.png"
+							TileMode="Tile"
+							ViewportUnits="Absolute"
+							 Viewport="0,0,80,80"/>
+			</Canvas.Background>
 			<Rectangle x:Name="BaseTower" Height="70" Width="70" Canvas.Left="605" Canvas.Top="325">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="pack://application:,,,/Resources;component/Image/castle.png"/>

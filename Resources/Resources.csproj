@@ -56,6 +56,12 @@
   <ItemGroup>
     <Resource Include="Image\hit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\WhiteAnomaly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\DebugTile.png" />
+  </ItemGroup>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

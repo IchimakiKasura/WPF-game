@@ -39,7 +39,7 @@ public partial class MainWindow : Window
 		Start.Click += delegate
 		{
 
-			mp.Play();
+			//mp.Play();
 			Start.IsEnabled = false;
 			TX.IsEnabled = true;
 
@@ -47,8 +47,9 @@ public partial class MainWindow : Window
 
 			t.Tick += delegate
 			{
-				gameEngine.Enemy.EnemySpawn(EnemyType.Slime);
-				gameEngine.Enemy.EnemySpawn(EnemyType.Astolfo);
+				//gameEngine.Enemy.EnemySpawn(EnemyType.Slime);
+				//gameEngine.Enemy.EnemySpawn(EnemyType.Astolfo);
+				gameEngine.Enemy.EnemySpawn(EnemyType.WhiteAnomaly);
 			};
 			t.Interval = TimeSpan.FromMilliseconds(1000);
 			t.Start();

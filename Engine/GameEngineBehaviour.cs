@@ -36,16 +36,17 @@ namespace Engine
 											GameEngine.BaseY,
 											Target,
 											Speed);
-			Target.BeginStoryboard(anim);
+			Target.storyboard = anim;
+			Target.storyboard.Begin();
 		}
 
 		public static void StoryboardStop(EnemySpawnSprite Target)
 		{
-			Storyboard anim = SetStoryBoard(Canvas.GetLeft(Target),
-											Canvas.GetTop(Target),
-											Target,
-											TimeSpan.Zero);
-			Target.BeginStoryboard(anim);
+			var X = Canvas.GetLeft(Target);
+			var Y = Canvas.GetTop(Target);
+			Target.storyboard.Stop();
+			Canvas.SetLeft(Target, X);
+			Canvas.SetTop(Target, Y);
 		}
 
 		public static void StoryboardSlow(EnemySpawnSprite Target)
@@ -73,6 +74,13 @@ namespace Engine
 			return Animation;
 		}
 		#endregion
+	}
+
+	// idk i want
+	public sealed class CollisionParameters
+	{
+		public EnemySpawnSprite Instance { get; set; }
+		public Rect HitBox { get; set; }
 	}
 
 	public sealed class EnemyAxis
@@ -165,7 +173,7 @@ namespace Engine
 		public static EnemyType WhiteAnomaly = new EnemyType()
 		{
 			Type = EnemyTypeEnum.WhiteAnomaly,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/WhiteAnomaly.png")),
 			Health = 80,
 			Speed = 8000
 		};
