@@ -47,8 +47,8 @@ public partial class MainWindow : Window
 
 			t.Tick += delegate
 			{
-				//gameEngine.Enemy.EnemySpawn(EnemyType.Slime);
-				//gameEngine.Enemy.EnemySpawn(EnemyType.Astolfo);
+				gameEngine.Enemy.EnemySpawn(EnemyType.Slime);
+				gameEngine.Enemy.EnemySpawn(EnemyType.Astolfo);
 				gameEngine.Enemy.EnemySpawn(EnemyType.WhiteAnomaly);
 			};
 			t.Interval = TimeSpan.FromMilliseconds(1000);

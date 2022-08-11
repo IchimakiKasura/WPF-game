@@ -27,9 +27,11 @@
 			</Rectangle>
 			<Ellipse x:Name="ellipse" Fill="LightBlue" Width="100" Height="100" Panel.ZIndex="1"/>
 		</Canvas>
-		<Label x:Name="kills" Content="Killed: 0" FontSize="20" Margin="10,626,981,52" IsHitTestVisible="False"/>
-		<Label x:Name="Gotaway" Content="Got Away: 0" FontSize="20" Margin="10,668,981,10" IsHitTestVisible="False"/>
-		<Label Content="Spawn Rate/ms:" FontSize="20" Margin="894,10,234,668" IsHitTestVisible="False"/>
+		<Label Content="This is a development build." FontSize="15" Margin="511,0,511,672" IsHitTestVisible="False" Foreground="White" HorizontalContentAlignment="Center"/>
+		<Label Content="anything may subject to change on release" FontSize="15" Margin="483,24,483,661" IsHitTestVisible="False" Foreground="White" HorizontalContentAlignment="Center"/>
+		<Label x:Name="kills" Content="Killed: 0" FontSize="20" Margin="10,626,981,52" IsHitTestVisible="False" Foreground="White"/>
+		<Label x:Name="Gotaway" Content="Got Away: 0" FontSize="20" Margin="10,668,981,10" IsHitTestVisible="False" Foreground="White"/>
+		<Label Content="Spawn Rate/ms:" FontSize="20" Margin="894,10,234,668" IsHitTestVisible="False" Foreground="White"/>
 		<Button x:Name="Start" Content="Start" Width="127" Margin="1143,10,10,668" />
 		<TextBox x:Name="TX" Margin="1046,10,141,668" TextChanged="TextChange" FontSize="28" IsEnabled="False"/>
 	</Grid>
