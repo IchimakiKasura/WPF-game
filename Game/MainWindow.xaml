@@ -8,7 +8,7 @@
 		SizeToContent="WidthAndHeight"
 		ResizeMode="CanMinimize"
         Title="Hi My Name is Kasura">
-	<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="720" Width="1280">
+	<Grid x:Name="GameWindow" VerticalAlignment="Center" HorizontalAlignment="Center" Height="720" Width="1280">
 		<Canvas x:Name="MainCanvas"
 				MouseMove="MouseMoveHandler"
 				Height="720"

@@ -62,6 +62,9 @@
   <ItemGroup>
     <Resource Include="Image\DebugTile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TheGameFont-Regular.ttf" />
+  </ItemGroup>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

@@ -64,6 +64,7 @@ namespace Engine.Enemies.Instance
 			mediaPlayer = new();
 			mediaPlayer.Open(new("Game/Musics/Hit.wav", UriKind.Relative));
 			mediaPlayer.Position = new TimeSpan(0, 0, 0, 0, 8);
+			mediaPlayer.Volume = GameEngine.SoundEffectsVolume;
 
 			InitializeComponent();
 		}

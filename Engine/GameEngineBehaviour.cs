@@ -1,11 +1,12 @@
-﻿using Engine.Enemies.Instance;
-using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Engine.Enemies.Instance;
+using System;
 
+using Engine.Sprites;
 namespace Engine
 {
 	public class GameEngineBehaviour
@@ -19,6 +20,20 @@ namespace Engine
 		/// Screen Size
 		/// </summary>
 		public enum ScreenSize { x720, x768, x900, x1080, x1440 }
+
+		#region Variables
+		public static double BaseX, BaseY;
+		public static int Game_H, Game_W;
+		public EnemyClass Enemy;
+		public PlayerClass Player;
+		public Rect Base;
+
+		public static double MusicVolume = 0.5;
+		public static double SoundEffectsVolume = 0.5;
+
+		public int Killed = 0;
+		public int GotAway = 0;
+		#endregion
 
 		#region MainWindow Collections
 		public static Canvas MainCanvas;
@@ -74,13 +89,6 @@ namespace Engine
 			return Animation;
 		}
 		#endregion
-	}
-
-	// idk i want
-	public sealed class CollisionParameters
-	{
-		public EnemySpawnSprite Instance { get; set; }
-		public Rect HitBox { get; set; }
 	}
 
 	public sealed class EnemyAxis
@@ -221,5 +229,12 @@ namespace Engine
 		RedAnomaly,
 		BlackAnomaly,
 		Dead
+	}
+
+	public enum DamageTypeEnum
+	{ 
+		Normal,
+		Critical,
+		Delete
 	}
 }

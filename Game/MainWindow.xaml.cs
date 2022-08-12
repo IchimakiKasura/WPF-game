@@ -23,23 +23,30 @@ public partial class MainWindow : Window
 		
 		InitializeComponent();
 
+		GameEngine.MusicVolume = 0.2;
+		GameEngine.SoundEffectsVolume = 0.2;
+
 		InitializeGlobalComponent();
 
 		MediaPlayer mp = new();
 
 		mp.Open(new("Game/Musics/BGM.wav", UriKind.Relative));
+		mp.Volume = GameEngine.MusicVolume;
 		mp.MediaEnded += delegate
 		{
 			mp.Position = TimeSpan.Zero;
 			mp.Play();
 		};
 
+		GameEngine.Game_H = (int)GameWindow.Height;
+		GameEngine.Game_W = (int)GameWindow.Width;
+
 		gameEngine = new();
 
 		Start.Click += delegate
 		{
 
-			//mp.Play();
+			mp.Play();
 			Start.IsEnabled = false;
 			TX.IsEnabled = true;
 
