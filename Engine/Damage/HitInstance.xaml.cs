@@ -1,14 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-
-namespace Engine.Damage
+﻿namespace Engine.Damage
 {
 	/// <summary>
 	/// Interaction logic for HitInstance.xaml
 	/// </summary>
 	public partial class HitInstance : UserControl
 	{
+
 		public static readonly DependencyProperty TextProperty = 
 			DependencyProperty.Register("Text", typeof(string), typeof(HitInstance), new PropertyMetadata("Hello"));
 
@@ -34,11 +31,10 @@ namespace Engine.Damage
 			}
 		}
 
-		public HitInstance(Enemies.Instance.EnemySpawnSprite Instance)
+		public HitInstance(EnemySpawnSprite Instance)
 		{
 			InitializeComponent();
-			
-
+	
 			Canvas.SetLeft(this, Canvas.GetLeft(Instance) + Canvas.GetLeft(Instance.DamageInstance));
 			Canvas.SetTop(this, Canvas.GetTop(Instance) + Canvas.GetLeft(Instance.DamageInstance));
 			Canvas.SetZIndex(this, 99);

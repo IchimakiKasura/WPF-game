@@ -1,12 +1,21 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Engine.Enemies.Instance;
-using System;
+﻿global using System;
+global using System.Linq;
+global using System.Windows;
+global using System.Numerics;
+global using System.Diagnostics;
+global using System.Windows.Media;
+global using System.Windows.Shapes;
+global using System.Windows.Controls;
+global using System.Windows.Threading;
+global using System.Collections.Generic;
+global using System.Windows.Media.Imaging;
+global using System.Windows.Media.Animation;
 
-using Engine.Sprites;
+global using Engine.Damage;
+global using Engine.Sprites;
+global using Engine.Enemies.Instance;
+global using static Resources.Properties.Resources;
+
 namespace Engine
 {
 	public class GameEngineBehaviour
@@ -74,8 +83,8 @@ namespace Engine
 			Storyboard Animation = new Storyboard();
 			Timeline.SetDesiredFrameRate(Animation, 24);
 
-			DoubleAnimation EnemyX = new DoubleAnimation() { To = X, Duration = Speed };
-			DoubleAnimation EnemyY = new DoubleAnimation() { To = Y, Duration = Speed };
+			DoubleAnimation EnemyX = new() { To = X, Duration = Speed };
+			DoubleAnimation EnemyY = new() { To = Y, Duration = Speed };
 
 			Storyboard.SetTargetProperty(EnemyX, new PropertyPath("(Canvas.Left)"));
 			Storyboard.SetTargetProperty(EnemyY, new PropertyPath("(Canvas.Top)"));
@@ -91,12 +100,21 @@ namespace Engine
 		#endregion
 	}
 
-	public sealed class EnemyAxis
+
+
+	//////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////
+	public sealed class Axis
 	{
-		public int AxisX { get; set; }
-		public int AxisY { get; set; }
+		public double AxisX { get; set; }
+		public double AxisY { get; set; }
 	}
 
+	/// <summary>
+	/// Enemy Type Instance
+	/// </summary>
 	public sealed class EnemyType
 	{
 		/// <summary>
@@ -119,13 +137,13 @@ namespace Engine
 		/// <summary>
 		/// Health multiplication idk 
 		/// </summary>
-		public static double HealthIncrease { get { return 0.5; } }
+		//public static double HealthIncrease { get { return 0.5; } }
 
 
 		public static EnemyType Astolfo = new EnemyType()
 		{
 			Type = EnemyTypeEnum.Astolfo,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/Astolfo.png")),
+			Image = new BitmapImage(new Uri(AstolfoImage)),
 			Health = 999,
 			Speed = 5000
 		};
@@ -133,7 +151,7 @@ namespace Engine
 		public static EnemyType Slime = new EnemyType()
 		{
 			Type = EnemyTypeEnum.Slime,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 10,
 			Speed = 10000
 		};
@@ -141,7 +159,7 @@ namespace Engine
 		public static EnemyType Skeleton = new EnemyType()
 		{
 			Type = EnemyTypeEnum.Skeleton,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 25,
 			Speed = 10000
 		};
@@ -149,7 +167,7 @@ namespace Engine
 		public static EnemyType GibyBoby = new EnemyType()
 		{
 			Type = EnemyTypeEnum.GibyBoby,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 30,
 			Speed = 8500
 		};
@@ -157,7 +175,7 @@ namespace Engine
 		public static EnemyType Cappage = new EnemyType()
 		{
 			Type = EnemyTypeEnum.Cappage,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 30,
 			Speed = 8500
 		};
@@ -165,7 +183,7 @@ namespace Engine
 		public static EnemyType ClayGas = new EnemyType()
 		{
 			Type = EnemyTypeEnum.ClayGas,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 30,
 			Speed = 8500
 		};
@@ -173,7 +191,7 @@ namespace Engine
 		public static EnemyType RockyBoi = new EnemyType()
 		{
 			Type = EnemyTypeEnum.RockyBoi,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 50,
 			Speed = 13000
 		};
@@ -181,7 +199,7 @@ namespace Engine
 		public static EnemyType WhiteAnomaly = new EnemyType()
 		{
 			Type = EnemyTypeEnum.WhiteAnomaly,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/WhiteAnomaly.png")),
+			Image = new BitmapImage(new Uri(WhiteAnomalyImage)),
 			Health = 80,
 			Speed = 8000
 		};
@@ -189,7 +207,7 @@ namespace Engine
 		public static EnemyType BlueAnomaly = new EnemyType()
 		{
 			Type = EnemyTypeEnum.BlueAnomaly,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 150,
 			Speed = 15000
 		};
@@ -197,7 +215,7 @@ namespace Engine
 		public static EnemyType RedAnomaly = new EnemyType()
 		{
 			Type = EnemyTypeEnum.RedAnomaly,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 195,
 			Speed = 10000
 		};
@@ -205,16 +223,15 @@ namespace Engine
 		public static EnemyType BlackAnomaly = new EnemyType()
 		{
 			Type = EnemyTypeEnum.BlackAnomaly,
-			Image = new BitmapImage(new Uri("pack://application:,,,/Resources;component/Image/slime.png")),
+			Image = new BitmapImage(new Uri(SlimeImage)),
 			Health = 300,
 			Speed = 20000
 		};
 	}
 
 	/// <summary>
-	/// Thou shall not see this xD
+	/// Enemy Type Enumeration
 	/// </summary>
-	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public enum EnemyTypeEnum
 	{
 		Astolfo,
@@ -231,6 +248,9 @@ namespace Engine
 		Dead
 	}
 
+	/// <summary>
+	/// Damage Type Enumeration
+	/// </summary>
 	public enum DamageTypeEnum
 	{ 
 		Normal,

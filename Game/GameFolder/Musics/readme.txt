@@ -1,0 +1,1 @@
+if ur having trouble add any music on a "WAV" format with a name "BGM" ex: BGM.wav

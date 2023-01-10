@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5D00EAC0-29BE-415B-82E6-5890A5BB98AE}</ProjectGuid>
-    <OutputType>library</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Engine</RootNamespace>
     <AssemblyName>Engine</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -116,5 +117,9 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <!-- Fixes the "partial class" definition problem on .net4.x or idk -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,4 @@
-﻿using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-
-namespace Game;
+﻿namespace Game;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
@@ -23,14 +19,14 @@ public partial class MainWindow : Window
 		
 		InitializeComponent();
 
-		GameEngine.MusicVolume = 0.2;
-		GameEngine.SoundEffectsVolume = 0.2;
+		GameEngine.MusicVolume = 0.1;
+		GameEngine.SoundEffectsVolume = 0.1;
 
 		InitializeGlobalComponent();
 
 		MediaPlayer mp = new();
 
-		mp.Open(new("Game/Musics/BGM.wav", UriKind.Relative));
+		mp.Open(new(BGM, UriKind.Relative));
 		mp.Volume = GameEngine.MusicVolume;
 		mp.MediaEnded += delegate
 		{

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-
-namespace Engine.Enemies.Instance
+﻿namespace Engine.Enemies.Instance
 {
 	/// <summary>
 	/// Interaction logic for EnemySpawnSprite.xaml
@@ -57,15 +52,16 @@ namespace Engine.Enemies.Instance
 
 		public MediaPlayer mediaPlayer { get; set; }
 
-		public System.Windows.Media.Animation.Storyboard storyboard { get; set; }
+		public Storyboard storyboard { get; set; }
+
+		public bool TargetHitted { get; set; } = false;
 
 		public EnemySpawnSprite()
 		{
 			mediaPlayer = new();
-			mediaPlayer.Open(new("Game/Musics/Hit.wav", UriKind.Relative));
+			mediaPlayer.Open(new(HitSound, UriKind.Relative));
 			mediaPlayer.Position = new TimeSpan(0, 0, 0, 0, 8);
 			mediaPlayer.Volume = GameEngine.SoundEffectsVolume;
-
 			InitializeComponent();
 		}
 	}

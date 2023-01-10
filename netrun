@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+msbuild="$PROGRAMFILES\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"
+
+if [ "$1" == "--build" ]; then
+    _Build
+fi
+
+if [ "$1" == "--run" ]; then
+    ./Game/bin/Debug/Game.exe
+fi
+
+if [ "$1" == "--buildrun" ]; then
+    _Build
+    ./Game/bin/Debug/Game.exe
+fi
+
+if [ "$1" == "--clear" ]; then
+    _clear
+fi
+
+_Build()
+{
+    "$msbuild" -property:WarningLevel=0 Game/Game.csproj
+}
+
+# _clear()
+# {
+    
+# }
